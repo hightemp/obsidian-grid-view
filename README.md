@@ -1,6 +1,6 @@
 # Obsidian grid view
 
-Excel like table for wolking with csv files.
+Excel like table for working with csv files.
 
 `grid-view`
 
