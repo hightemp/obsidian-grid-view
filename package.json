@@ -1,0 +1,32 @@
+{
+	"name": "grid-view",
+	"version": "1.0.7",
+	"description": "Datagrid wrapper for x-spreadsheet for csv files",
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build:css": "lessc node_modules/x-data-spreadsheet/src/index.less node_modules/x-data-spreadsheet/src/index.css",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"@typescript-eslint/eslint-plugin": "5.29.0",
+		"@typescript-eslint/parser": "5.29.0",
+		"builtin-modules": "3.3.0",
+		"esbuild": "0.17.3",
+		"esbuild-plugin-svgr": "^1.0.1",
+		"obsidian": "latest",
+		"tsccss": "^1.0.0",
+		"tslib": "2.4.0",
+		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"svg-to-ts": "^9.0.0",
+		"typed-less-modules": "^1.0.1",
+		"x-data-spreadsheet": "^1.1.9"
+	}
+}
