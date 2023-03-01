@@ -1,7 +1,7 @@
 {
 	"id": "grid-view",
 	"name": "Grid view",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"minAppVersion": "0.15.0",
 	"description": "Datagrid wrapper for x-spreadsheet for csv files",
 	"author": "hightemp",

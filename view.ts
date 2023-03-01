@@ -32,8 +32,8 @@ export class CSVView extends TextFileView {
             showContextmenu: true,
             showBottomBar: false,
             view: {
-                height: () => document.querySelector(".view-content")?.clientHeight as number - 30,
-                width: () => document.querySelector(".view-content")?.clientWidth as number - 10,
+                height: () => document.querySelector(".view-content")?.clientHeight as number - 40,
+                width: () => document.querySelector(".view-content")?.clientWidth as number - 40,
             },
             row: {
                 len: 100,
@@ -76,30 +76,33 @@ export class CSVView extends TextFileView {
                 rows[iI]['cells'][iJ] = { text: _rows[iI][iJ] }
             }
         }
-        const s = spreadsheet(".x-spreadsheet-demo", oO)
-            .loadData({ rows }) // load data
-            .change((data: any) => {
-                console.log(data)
-                var _data = ""
-                for (var iI in data.rows) {
-                    var aRow: any[] = []
-                    for (var iJ=0;iJ<30;iJ++) { 
-                        // data.rows[iI].cells
-                        var sS: any = ""
-                        if (data.rows[iI].cells && data.rows[iI].cells[iJ] && data.rows[iI].cells[iJ].text) 
-                            sS = data.rows[iI].cells[iJ].text
-                        else
-                            sS = ""
-                        if (!sS) sS = ""
-                        sS = sS.replace('"', '\\"')
-                        aRow.push('"'+sS+'"')
-                    }
-                    _data += aRow.join(',')+"\n"
-                }
-                fnSaveData(_data)
-            });
 
-        console.log(rows)
+        setTimeout(() => {
+            console.log('rows', rows)
+            spreadsheet(".x-spreadsheet-demo", oO)
+                .loadData({ rows }) // load data
+                .change((data: any) => {
+                    console.log(data)
+                    var _data = ""
+                    for (var iI in data.rows) {
+                        var aRow: any[] = []
+                        for (var iJ=0;iJ<30;iJ++) { 
+                            // data.rows[iI].cells
+                            var sS: any = ""
+                            if (data.rows[iI].cells && data.rows[iI].cells[iJ] && data.rows[iI].cells[iJ].text) 
+                                sS = data.rows[iI].cells[iJ].text
+                            else
+                                sS = ""
+                            if (!sS) sS = ""
+                            sS = sS.replace('"', '\\"')
+                            aRow.push('"'+sS+'"')
+                        }
+                        _data += aRow.join(',')+"\n"
+                    }
+                    fnSaveData(_data)
+                });
+        }, 300)
+        // console.log(rows)
     }
 
     clear() {
