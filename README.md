@@ -1,5 +1,7 @@
 # Obsidian grid view
 
+![](https://asdertasd.site/counter/obsidian-grid-view)
+
 Excel like table for working with csv files.
 
 - Added command for creating folder and csv file
